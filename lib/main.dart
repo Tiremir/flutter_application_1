@@ -5,9 +5,9 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
+  /*await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  );
+  );*/
   runApp(const MainApp());
 }
 
@@ -19,10 +19,10 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  final FirebaseMessaging _messaging = FirebaseMessaging.instance;
+  //final FirebaseMessaging _messaging = FirebaseMessaging.instance;
   double turns = 0;
 
-  void initNotifications() async {
+  /*void initNotifications() async {
     NotificationSettings settings = await _messaging.requestPermission(
       alert: true,
       announcement: false,
@@ -55,7 +55,7 @@ class _MainAppState extends State<MainApp> {
   static Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     await Firebase.initializeApp();
     print('Обработка фона: ${message.notification?.title}/${message.notification?.body}');
-  }
+  }*/
 
   void changeRotation(double step) {
     setState(() => turns += step);
@@ -64,7 +64,7 @@ class _MainAppState extends State<MainApp> {
   @override
   void initState() {
     super.initState();
-    initNotifications();
+    //initNotifications();
   }
 
   @override
